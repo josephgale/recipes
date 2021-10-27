@@ -7,10 +7,10 @@ void main() {
 class RecipeApp extends StatelessWidget {
   const RecipeApp({Key? key}) : super(key: key);
 
-// 1
+// 1 A widget’s build() method is the entry point for composing together other widgets to make a new widget.
   @override
   Widget build(BuildContext context) {
-    // 2
+    // 2 A theme determines visual aspects like color. The default ThemeData will show the standard Material defaults.
     final ThemeData theme = ThemeData();
     // 3
     return MaterialApp(
