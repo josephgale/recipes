@@ -12,18 +12,18 @@ class RecipeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // 2 A theme determines visual aspects like color. The default ThemeData will show the standard Material defaults.
     final ThemeData theme = ThemeData();
-    // 3
+    // 3 MaterialApp uses Material Design and is the widget that will be included in RecipeApp.
     return MaterialApp(
-      // 4
+      // 4 The title of the app is a description that the device uses to identify the app. The UI won’t display this.
       title: 'Recipe Calculator',
-      // 5
+      // 5 By copying the theme and replacing the color scheme with an updated copy lets you change the app’s colors. Here, the primary color is Colors.grey and the secondary color is Colors.black.
       theme: theme.copyWith(
         colorScheme: theme.colorScheme.copyWith(
           primary: Colors.grey,
           secondary: Colors.black,
         ),
       ),
-      // 6
+      // 6 This still uses the same MyHomePage widget as before, but now, you’ve updated the title and displayed it on the device.
       home: const MyHomePage(title: 'Recipe Calculator'),
     );
   }
@@ -49,18 +49,26 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  @override
+  Widget build(BuildContext context) {
+    // 1 A Scaffold provides the high-level structure for a screen. In this case, you’re using two properties.
+    return Scaffold(
+      // 2 AppBar gets a title property by using a Text widget that has a title passed in from home: MyHomePage(title: 'Recipe Calculator') in the previous step.
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      // 3 body has SafeArea, which keeps the app from getting too close to the operating system interfaces such as the notch or interactive areas like the Home Indicator at the bottom of some iOS screens.
+      body: SafeArea(
+        // TODO: Replace child: Container()
+        // 4 SafeArea has a child widget, which is an empty Container widget.
+        child: Container(),
+      ),
+    );
   }
+
+// TODO: Add buildRecipeCard() here
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -100,14 +108,16 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$_counter',
+              //'$_counter',
+              'counter',
               style: Theme.of(context).textTheme.headline4,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        //onPressed: _incrementCounter,
+        onPressed: ,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
